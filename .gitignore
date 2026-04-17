@@ -1,0 +1,4 @@
+temporary screenshots/
+*.png
+.claude/
+node_modules/
