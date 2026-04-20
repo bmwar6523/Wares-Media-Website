@@ -146,7 +146,7 @@
     }
     .nav-r { display: flex; align-items: center; gap: 32px; }
     .nav-r a {
-      font-size: 12px; font-weight: 500; color: var(--text-2);
+      font-size: 14px; font-weight: 500; color: var(--text-2);
       text-decoration: none; letter-spacing: 0.03em;
       transition: color .2s;
     }
@@ -277,7 +277,10 @@
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       border: 0; display: block;
+      opacity: 0;
+      transition: opacity .6s ease;
     }
+    .hero-visual-top iframe.loaded { opacity: 1; }
     /* Mobile-only video thumbnail strip */
     .hero-mobile-thumb { display: none; }
     .hero-visual-bottom {
@@ -453,7 +456,7 @@
       font-size: 17px; letter-spacing: -0.02em; margin-bottom: 10px; color: var(--text);
     }
     .bc-desc {
-      font-size: 13px; line-height: 1.7; color: var(--text-2);
+      font-size: 14px; line-height: 1.7; color: var(--text-2);
       letter-spacing: var(--ls-body);
     }
 
@@ -496,7 +499,7 @@
       font-family: 'Poppins', sans-serif; font-weight: 700;
       font-size: 19px; letter-spacing: -0.025em; margin-bottom: 9px; color: var(--text);
     }
-    .ac-desc { font-size: 13px; line-height: 1.7; color: var(--text-2); letter-spacing: var(--ls-body); }
+    .ac-desc { font-size: 14px; line-height: 1.7; color: var(--text-2); letter-spacing: var(--ls-body); }
 
     /* ─── STATEMENT SECTION ─── */
     .statement-section {
@@ -562,7 +565,7 @@
     .faq-item.open .faq-a { max-height: 400px; }
     .faq-a-inner {
       padding-bottom: 20px;
-      font-size: 13px; line-height: 1.8; color: var(--text-2);
+      font-size: 14px; line-height: 1.8; color: var(--text-2);
       letter-spacing: var(--ls-body);
     }
 
@@ -635,7 +638,7 @@
     }
     .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .foot-col ul li a {
-      font-size: 13px; color: var(--text-3); text-decoration: none;
+      font-size: 14px; color: var(--text-3); text-decoration: none;
       transition: color .2s; letter-spacing: var(--ls-body);
     }
     .foot-col ul li a:hover { color: var(--text); }
@@ -753,7 +756,7 @@
       .statement-quote { font-size: clamp(32px, 9vw, 48px); }
       .join-s { padding: 80px 24px; }
       .join-s .s-h2 { font-size: clamp(36px, 9vw, 56px) !important; }
-      .faq-q-text { font-size: 13px; }
+      .faq-q-text { font-size: 14px; }
       footer { padding: 56px 24px 36px; }
       .foot-r { grid-template-columns: 1fr 1fr; gap: 32px; }
       .foot-copy { text-align: left; }
@@ -944,7 +947,7 @@
 
       <!-- Mobile-only: video thumbnail shown instead of right column -->
       <div class="hero-mobile-thumb fu d3">
-        <img src="/Brand_Assets/maxresdefault.jpg" alt="Ware's Media — Stop Scrolling, Start Converting">
+        <img src="/Brand_Assets/maxresdefault.jpg" alt="Ware's Media Stop Scrolling, Start Converting">
       </div>
 
       <div class="hero-actions fu d4">
@@ -976,7 +979,8 @@
       <div class="hero-visual-box fu d3">
         <div class="hero-visual-top">
           <iframe
-            src="https://www.youtube.com/embed/-aclLY1UFyg?autoplay=1&mute=1&loop=1&playlist=-aclLY1UFyg&controls=0&rel=0&modestbranding=1&playsinline=1"
+            id="hero-yt"
+            data-src="https://www.youtube.com/embed/-aclLY1UFyg?autoplay=1&mute=1&loop=1&playlist=-aclLY1UFyg&controls=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
             allow="autoplay; encrypted-media; picture-in-picture"
             allowfullscreen
             title="Ware's Media Reel"
@@ -1032,20 +1036,20 @@
   <!-- ══════════════════════════════ ABOUT ══════════════════════════════ -->
   <section class="s" id="about">
     <div class="s-inner">
-      <div class="s-nr rv">01 —</div>
+      <div class="s-nr rv">01</div>
       <div class="about-grid rv">
         <!-- Left: editorial text block -->
         <div class="about-l">
           <div>
             <div class="s-tag">Who We Are</div>
             <p class="about-big-quote">
-              Phoenix &amp; Scottsdale's dedicated media agency — turning local businesses from <em>invisible to unforgettable.</em>
+              Phoenix &amp; Scottsdale's dedicated media agency turning local businesses from <em>invisible to unforgettable.</em>
             </p>
             <ul class="about-body-list">
-              <li>Video Production — Scripted, filmed &amp; edited in-house</li>
-              <li>Paid Ads — ROI-first campaigns that fill your pipeline</li>
-              <li>Web Design — Websites that rank and convert, not just impress</li>
-              <li>AI Automation — Custom workflows that free up your time and scale your ops</li>
+              <li>Video Production Scripted, filmed &amp; edited in-house</li>
+              <li>Paid Ads ROI-first campaigns that fill your pipeline</li>
+              <li>Web Design Websites that rank and convert, not just impress</li>
+              <li>AI Automation Custom workflows that free up your time and scale your ops</li>
             </ul>
           </div>
           <div style="margin-top: 44px;">
@@ -1079,13 +1083,13 @@
       <div class="statement-grid">
         <div class="statement-l rv">
           <div class="s-tag">The Mission</div>
-          <p>We believe every Phoenix &amp; Scottsdale business deserves a media presence that works as hard as they do — capturing attention, building authority, and converting it into consistent revenue.</p>
+          <p>We believe every Phoenix &amp; Scottsdale business deserves a media presence that works as hard as they do capturing attention, building authority, and converting it into consistent revenue.</p>
         </div>
         <div class="rv">
           <div class="statement-quote">
-            "Stop Scrolling.
+            "Stop Scrolling.<br>
             <em> Start Converting."</em>
-            <span>— Ware's Media · Glendale, AZ</span>
+            <span>Ware's Media · Glendale, AZ</span>
           </div>
         </div>
       </div>
@@ -1095,13 +1099,13 @@
   <!-- ══════════════════════════════ SERVICES ══════════════════════════════ -->
   <section class="s benefits-bg" id="services">
     <div class="s-inner">
-      <div class="s-nr rv">02 —</div>
+      <div class="s-nr rv">02</div>
       <div class="benefits-top">
         <div class="rv">
           <div class="s-tag">What We Do</div>
-          <h2 class="s-h2">Everything to<br>Capture &amp; Convert.</h2>
+          <h2 class="s-h2">Everything to<br><em style="color:var(--red);font-style:italic;">Capture &amp; Convert.</em></h2>
         </div>
-        <p class="s-desc rv">Video, ads, web, and AI — all under one roof. Built for Arizona businesses that want real results, not just content.</p>
+        <p class="s-desc rv">Video, ads, web, and AI all under one roof. Built for Arizona businesses that want real results, not just content.</p>
       </div>
       <div class="benefits-grid">
         <div class="bc rv">
@@ -1147,10 +1151,10 @@
   <!-- ══════════════════════════════ PROCESS ══════════════════════════════ -->
   <section class="s" id="process">
     <div class="s-inner">
-      <div class="s-nr rv">03 —</div>
+      <div class="s-nr rv">03</div>
       <div class="s-tag rv">How It Works</div>
-      <h2 class="s-h2 rv">Simple Process.<br>Real Results.</h2>
-      <p class="s-desc rv" style="margin-top:14px;">From your first call to full media execution — here's how we take your business from invisible to unforgettable.</p>
+      <h2 class="s-h2 rv">Simple Process.<br><em style="color:var(--red);font-style:italic;">Real Results.</em></h2>
+      <p class="s-desc rv" style="margin-top:14px;">From your first call to full media execution here's how we take your business from invisible to unforgettable.</p>
       <div class="act-grid">
         <div class="ac rv">
           <div class="ac-thumb-styled">
@@ -1159,7 +1163,7 @@
           <div class="ac-body">
             <div class="ac-tag">Step 01</div>
             <h3 class="ac-title">Free Strategy Call</h3>
-            <p class="ac-desc">We learn your goals, market, and competition in a free 30-minute call. No pressure — just a clear picture of where you are and where you want to be.</p>
+            <p class="ac-desc">We learn your goals, market, and competition in a free 30-minute call. No pressure just a clear picture of where you are and where you want to be.</p>
           </div>
         </div>
         <div class="ac rv">
@@ -1169,7 +1173,7 @@
           <div class="ac-body">
             <div class="ac-tag">Step 02</div>
             <h3 class="ac-title">Your Custom Media Plan</h3>
-            <p class="ac-desc">We build a media strategy tailored to your market, budget, and timeline — with clear deliverables, measurable goals, and a launch roadmap.</p>
+            <p class="ac-desc">We build a media strategy tailored to your market, budget, and timeline with clear deliverables, measurable goals, and a launch roadmap.</p>
           </div>
         </div>
         <div class="ac rv">
@@ -1179,7 +1183,7 @@
           <div class="ac-body">
             <div class="ac-tag">Step 03</div>
             <h3 class="ac-title">We Handle Everything</h3>
-            <p class="ac-desc">Filming, editing, ad campaigns, website builds — our team executes while you stay focused on your business. We are your full media department.</p>
+            <p class="ac-desc">Filming, editing, ad campaigns, website builds our team executes while you stay focused on your business. We are your full media department.</p>
           </div>
         </div>
         <div class="ac rv">
@@ -1199,10 +1203,10 @@
   <!-- ══════════════════════════════ FAQ ══════════════════════════════ -->
   <section class="s faq-s" id="faq">
     <div class="s-inner">
-      <div class="s-nr rv">04 —</div>
+      <div class="s-nr rv">04</div>
       <div class="rv">
         <div class="s-tag">Common Questions</div>
-        <h2 class="s-h2">Curious? We Have<br>the <em style="color:var(--red);font-style:italic;">Answers.</em></h2>
+        <h2 class="s-h2">Curious?<br>We Have<br>the <em style="color:var(--red);font-style:italic;">Answers.</em></h2>
       </div>
       <div class="faq-grid">
         <!-- Category 1 -->
@@ -1213,14 +1217,14 @@
               <span class="faq-q-text">How often do you film content?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
-            <div class="faq-a"><div class="faq-a-inner">We film on a regular schedule tailored to your package and goals — typically weekly or bi-weekly. The frequency can always be adjusted based on your needs, industry, and content strategy.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">We film on a regular schedule tailored to your package and goals typically weekly or bi-weekly. The frequency can always be adjusted based on your needs, industry, and content strategy.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-q-text">Does Ware's Media plan the content?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
-            <div class="faq-a"><div class="faq-a-inner">Yes — every shoot comes with a complete content plan. Our team develops scripted concepts, shot lists, and strategic direction before we arrive on set so no time is wasted.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">Yes every shoot comes with a complete content plan. Our team develops scripted concepts, shot lists, and strategic direction before we arrive on set so no time is wasted.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
@@ -1234,7 +1238,7 @@
               <span class="faq-q-text">What cameras and equipment do you use?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
-            <div class="faq-a"><div class="faq-a-inner">We use cinema-grade cameras, professional lighting rigs, studio-quality audio, and a full post-production suite. The same level of gear used in commercial productions — every time.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">We use cinema-grade cameras, professional lighting rigs, studio-quality audio, and a full post-production suite. The same level of gear used in commercial productions every time.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
@@ -1253,35 +1257,35 @@
               <span class="faq-q-text">Do you create websites?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
-            <div class="faq-a"><div class="faq-a-inner">Yes — we design and build custom websites from the ground up. Every site is built to convert visitors into leads. We typically recommend a website to properly funnel clients and make your media work harder than a billboard.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">Yes we design and build custom websites from the ground up. Every site is built to convert visitors into leads. We typically recommend a website to properly funnel clients and make your media work harder than a billboard.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-q-text">Where do you typically film?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
-            <div class="faq-a"><div class="faq-a-inner">We film at your location, our Glendale studio, or any venue that fits your brand. We travel across Phoenix, Scottsdale, and the greater Valley — wherever your story needs to be told.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">We film at your location, our Glendale studio, or any venue that fits your brand. We travel across Phoenix, Scottsdale, and the greater Valley wherever your story needs to be told.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-q-text">What CRM do you use?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
-            <div class="faq-a"><div class="faq-a-inner">We integrate with most CRMs including HubSpot, GoHighLevel, Pipedrive, and more. We'll work seamlessly within your existing systems — no need to switch platforms.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">We integrate with most CRMs including HubSpot, GoHighLevel, Pipedrive, and more. We'll work seamlessly within your existing systems no need to switch platforms.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-q-text">How many leads can I expect?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
-            <div class="faq-a"><div class="faq-a-inner">Results vary by market, budget, and offer — but most clients see qualified leads within the first 30 days of campaign launch. We'll set realistic expectations during your strategy call.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">Results vary by market, budget, and offer but most clients see qualified leads within the first 30 days of campaign launch. We'll set realistic expectations during your strategy call.</div></div>
           </div>
           <div class="faq-item">
             <button class="faq-q">
               <span class="faq-q-text">What's the difference from just running ads?</span>
               <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
             </button>
-            <div class="faq-a"><div class="faq-a-inner">Ads alone send traffic somewhere weak. We pair campaigns with compelling video creative and high-converting landing pages — the full funnel, not just one piece of it. That's the difference between traffic and results.</div></div>
+            <div class="faq-a"><div class="faq-a-inner">Ads alone send traffic somewhere weak. We pair campaigns with compelling video creative and high-converting landing pages the full funnel, not just one piece of it. That's the difference between traffic and results.</div></div>
           </div>
         </div>
       </div>
@@ -1310,7 +1314,7 @@
       <div class="foot-top">
         <div>
           <p class="foot-tagline">
-            Video, ads, web &amp; AI —<br>for Phoenix &amp; Scottsdale businesses<br><em>ready to stop being invisible.</em>
+            Video, ads, web &amp; AI<br>for Phoenix &amp; Scottsdale businesses<br><em>ready to stop being invisible.</em>
           </p>
           <div class="foot-cta-row">
             <button class="btn btn-red" onclick="openModal()" style="font-size:11px;padding:11px 24px;">Book a Free Call</button>
@@ -1368,7 +1372,7 @@
       <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
       <div class="modal-tag">Free Strategy Call</div>
       <h3 class="modal-title">Book Your 30-Minute Call</h3>
-      <p class="modal-sub">Pick a time that works for you. No pressure — just an honest conversation about your goals and how we can help you get there.</p>
+      <p class="modal-sub">Pick a time that works for you. No pressure just an honest conversation about your goals and how we can help you get there.</p>
       <div class="modal-iframe-wrap">
         <iframe src="https://waresmedia.pipedrive.com/scheduler/WA0A5BC2/strategy-call" title="Pipedrive Scheduler Embed" frameborder="0" height="600px" width="100%" style="max-width:800px;display:block;" allowfullscreen></iframe>
       </div>
@@ -1376,6 +1380,23 @@
   </div>
 
   <script>
+    // Lazy-load hero YouTube embed after page is interactive
+    (function() {
+      function onLoad() {
+        const iframe = document.getElementById('hero-yt');
+        if (!iframe) return;
+        iframe.addEventListener('load', function() {
+          iframe.classList.add('loaded');
+        });
+        iframe.src = iframe.dataset.src;
+      }
+      if (document.readyState === 'complete') {
+        setTimeout(onLoad, 300);
+      } else {
+        window.addEventListener('load', function() { setTimeout(onLoad, 300); });
+      }
+    })();
+
     // Nav scroll state
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
@@ -1445,14 +1466,14 @@
       <button id="email-popup-close" aria-label="Close">✕</button>
       <p class="ep-eyebrow">Stay in the loop</p>
       <h2 class="ep-heading">Get tips that actually grow your brand.</h2>
-      <p class="ep-sub">Join our list for content strategy breakdowns, behind-the-scenes shoots, and early access to offers — no fluff.</p>
+      <p class="ep-sub">Join our list for content strategy breakdowns, behind-the-scenes shoots, and early access to offers no fluff.</p>
       <form class="ep-form" id="ep-form">
         <input class="ep-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
-        <button class="ep-submit" type="submit">Subscribe — It's Free</button>
+        <button class="ep-submit" type="submit">Subscribe It's Free</button>
       </form>
       <div class="ep-success" id="ep-success">
         <div class="ep-check">✓</div>
-        <p><strong>You're in!</strong><br>Check your inbox — we'll be in touch soon.</p>
+        <p><strong>You're in!</strong><br>Check your inbox we'll be in touch soon.</p>
       </div>
       <p class="ep-skip"><a id="ep-skip-link">No thanks, maybe later</a></p>
     </div>
