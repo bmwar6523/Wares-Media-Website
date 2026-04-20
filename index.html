@@ -774,6 +774,131 @@
       .hero-actions .btn-outline { padding: 14px 0; }
       .join-s button.btn-red { width: auto !important; }
     }
+
+    /* ─── EMAIL POPUP ─── */
+    #email-popup-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(0,0,0,0.72);
+      backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .4s cubic-bezier(.16,1,.3,1);
+    }
+    #email-popup-overlay.open { opacity: 1; pointer-events: all; }
+
+    #email-popup {
+      position: relative;
+      background: var(--bg-2);
+      border: 1px solid var(--border-2);
+      border-radius: 16px;
+      padding: 48px 44px 44px;
+      max-width: 460px; width: 100%;
+      box-shadow: 0 0 0 1px rgba(229,0,0,.08), 0 32px 80px rgba(0,0,0,.7), 0 0 60px rgba(229,0,0,.07);
+      transform: translateY(24px) scale(0.97);
+      transition: transform .45s cubic-bezier(.16,1,.3,1);
+      overflow: hidden;
+    }
+    #email-popup-overlay.open #email-popup { transform: translateY(0) scale(1); }
+
+    /* red glow accent top */
+    #email-popup::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+    }
+
+    #email-popup-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 32px; height: 32px;
+      border: 1px solid var(--border-2); border-radius: 50%;
+      background: var(--bg-3);
+      color: var(--text-2); cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; line-height: 1;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+    #email-popup-close:hover { background: var(--bg-4); color: var(--text); border-color: var(--border-2); }
+
+    .ep-eyebrow {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px; font-weight: 600;
+      letter-spacing: var(--ls-label);
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+    }
+    .ep-heading {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(22px, 5vw, 28px);
+      font-weight: 700;
+      letter-spacing: var(--ls-heading);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .ep-sub {
+      font-size: 14px; color: var(--text-2);
+      line-height: var(--lh-body);
+      margin-bottom: 28px;
+    }
+    .ep-form { display: flex; flex-direction: column; gap: 12px; }
+    .ep-input {
+      width: 100%;
+      background: var(--bg-3);
+      border: 1px solid var(--border-2);
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-size: 14px; font-family: 'Inter', sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .ep-input::placeholder { color: var(--text-3); }
+    .ep-input:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(229,0,0,.12); }
+    .ep-submit {
+      width: 100%;
+      background: var(--red);
+      color: #fff;
+      border: none; border-radius: 8px;
+      padding: 14px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px; font-weight: 600;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(229,0,0,.35);
+    }
+    .ep-submit:hover { background: var(--red-hot); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(229,0,0,.45); }
+    .ep-submit:active { transform: translateY(0); }
+    .ep-skip {
+      text-align: center; margin-top: 14px;
+      font-size: 12px; color: var(--text-3);
+    }
+    .ep-skip a {
+      color: var(--text-3); text-decoration: underline; cursor: pointer;
+      transition: color .2s;
+    }
+    .ep-skip a:hover { color: var(--text-2); }
+    .ep-success {
+      text-align: center; display: none;
+      padding: 16px 0 8px;
+    }
+    .ep-success .ep-check {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(229,0,0,.12);
+      border: 1px solid rgba(229,0,0,.3);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 22px;
+    }
+    .ep-success p { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+    .ep-success strong { color: var(--text); }
+
+    @media (max-width: 480px) {
+      #email-popup { padding: 40px 24px 32px; }
+    }
   </style>
 </head>
 <body>
@@ -1311,6 +1436,75 @@
       }
       const sec = document.getElementById('join');
       if (sec) sec.prepend(wrap);
+    })();
+  </script>
+
+  <!-- ─── EMAIL POPUP ─── -->
+  <div id="email-popup-overlay" role="dialog" aria-modal="true" aria-label="Stay in the loop">
+    <div id="email-popup">
+      <button id="email-popup-close" aria-label="Close">✕</button>
+      <p class="ep-eyebrow">Stay in the loop</p>
+      <h2 class="ep-heading">Get tips that actually grow your brand.</h2>
+      <p class="ep-sub">Join our list for content strategy breakdowns, behind-the-scenes shoots, and early access to offers — no fluff.</p>
+      <form class="ep-form" id="ep-form">
+        <input class="ep-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email">
+        <button class="ep-submit" type="submit">Subscribe — It's Free</button>
+      </form>
+      <div class="ep-success" id="ep-success">
+        <div class="ep-check">✓</div>
+        <p><strong>You're in!</strong><br>Check your inbox — we'll be in touch soon.</p>
+      </div>
+      <p class="ep-skip"><a id="ep-skip-link">No thanks, maybe later</a></p>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const STORAGE_KEY = 'wm_email_popup';
+      const DELAY_MS = 2000;
+      const SNOOZE_DAYS = 30;
+
+      const overlay = document.getElementById('email-popup-overlay');
+      const form    = document.getElementById('ep-form');
+      const success = document.getElementById('ep-success');
+      const closeBtn = document.getElementById('email-popup-close');
+      const skipLink = document.getElementById('ep-skip-link');
+
+      function dismissed() {
+        const val = localStorage.getItem(STORAGE_KEY);
+        if (!val) return false;
+        const until = parseInt(val, 10);
+        return Date.now() < until;
+      }
+
+      function dismiss() {
+        const until = Date.now() + SNOOZE_DAYS * 24 * 60 * 60 * 1000;
+        localStorage.setItem(STORAGE_KEY, until);
+        overlay.classList.remove('open');
+      }
+
+      function openPopup() {
+        if (!dismissed()) overlay.classList.add('open');
+      }
+
+      setTimeout(openPopup, DELAY_MS);
+
+      closeBtn.addEventListener('click', dismiss);
+      skipLink.addEventListener('click', dismiss);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) dismiss();
+      });
+
+      // Replace the action below with your Formspree/Mailchimp endpoint
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch('https://formspree.io/f/xjgjowgn', { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+        form.style.display = 'none';
+        success.style.display = 'block';
+        const until = Date.now() + SNOOZE_DAYS * 24 * 60 * 60 * 1000;
+        localStorage.setItem(STORAGE_KEY, until);
+        setTimeout(dismiss, 3000);
+      });
     })();
   </script>
 </body>
